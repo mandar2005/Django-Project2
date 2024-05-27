@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #4CAF50; /* Green background */
+            overflow: hidden;
+            border: 2px solid #008000; /* Dark green border */
+            font-size: 20px; /* Increase font size */
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .logout-container {
+            float: right;
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+
+        .logout-container a {
+            color: #f44336; /* Red color for logout */
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="/attendance">Attendance</a>
+        
+    </nav>
+
+    <div>
+        <h1>Welcome, {{ user }}</h1>
+    </div>
+
+    <div class="logout-container">
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+    <!-- Your attendance content goes here -->
+
+</body>
+
+</html>

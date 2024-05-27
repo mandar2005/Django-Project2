@@ -1,0 +1,21 @@
+<div class="main">
+    <form method="POST">
+        {% csrf_token %}
+        <label for="attendance_date">Attendance Date:</label>
+        <input type="date" id="attendance_date" name="attendance_date" required><br><br>
+        
+        <!-- Loop through each attendance record -->
+        {% for attendance in dataset %}
+            <label for="status_{{ attendance.id }}">{{ attendance.student.user.username }}:</label>
+            <select id="status_{{ attendance.id }}" name="status_{{ attendance.id }}" required>
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+                <!-- Add more options if needed -->
+            </select><br><br>
+            <!-- Use 'attendance.id' instead of 'person.student.id' -->
+            <input type="hidden" name="attendance_ids[]" value="{{ attendance.id }}">
+        {% endfor %}
+        
+        <button type="submit">Submit Attendance</button>
+    </form>
+</div>
